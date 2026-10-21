@@ -78,5 +78,676 @@
       }
     ],
     "metrics": {}
+  },
+  {
+    "id": "7518625929686835201",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7518625929686835201/",
+    "author": {
+      "name": "Kaja Skerlj",
+      "handle": "kajaskerlj",
+      "url": "https://www.linkedin.com/in/kajaskerlj/",
+      "avatar": "posts/7518625929686835201-kajaskerlj-cf2e86c2.png"
+    },
+    "created_at": "2026-10-21T10:55:10.952Z",
+    "text": "Two talks from Granola's design engineering night that I'm thinking about 👇\n \n1. Maggie Appleton (GitHubMaggie Appleton (GitHub Next) on speculative design.\nI've been following Maggie's work since her writing on digital gardens, where ideas grow wiki-style instead of being published as finished posts in chronological order.\n\nShe talked about her work at the R&D labs of GitHub, noticing weak signals, asking what might happen next, then building a prototype that lets people actually examine that future. At ∗codeplain we're asking the same question about software development: what are the signals and how will we develop software in Sept 2027?\n\n2. Vlad Moroz (Paper) on the shape of color.\nI never took too much time thinking about how color pickers in design tools are made, but they affect every designer's work. How do you preserve readability and perceived intensity when changing hues?\n\nVlad showed how the same HSL lightness can have very different perceived brightness across hues. Paper maps each OKLCH hue slice into a rectangular picker so colors stay in gamut and hue shifts feel consistent. And agents still default to hex, so I keep wondering what they'd design like if they thought in OKLCH.\n\nThanks Granola for opening your office and hosting the 10th edition of the design eng night!",
+    "media": [
+      {
+        "type": "image",
+        "src": "posts/7518625929686835201-01.jpg",
+        "width": 1280,
+        "height": 1707,
+        "alt": "Media from Kaja Skerlj’s saved post",
+        "poster": null
+      },
+      {
+        "type": "image",
+        "src": "posts/7518625929686835201-02.jpg",
+        "width": 1280,
+        "height": 1707,
+        "alt": "Media from Kaja Skerlj’s saved post",
+        "poster": null
+      },
+      {
+        "type": "image",
+        "src": "posts/7518625929686835201-03.jpg",
+        "width": 1280,
+        "height": 1707,
+        "alt": "Media from Kaja Skerlj’s saved post",
+        "poster": null
+      }
+    ],
+    "metrics": {
+      "likes": null,
+      "reposts": null,
+      "quotes": null,
+      "replies": null,
+      "views": null,
+      "bookmarks": null,
+      "score": null
+    }
+  },
+  {
+    "id": "2112626286132601104",
+    "platform": "x",
+    "url": "https://x.com/Ansenjeo/status/2112626286132601104",
+    "author": {
+      "name": "Ansenjeo",
+      "handle": "Ansenjeo",
+      "url": "https://x.com/Ansenjeo",
+      "avatar": "posts/2112626286132601104-2108421141731672064-356c4b6e.jpg"
+    },
+    "created_at": "2026-10-20T19:25:31.000Z",
+    "text": "Making the ASCII MMORPG of my dreams!\n\nSome work from the past few days🙌\n\n1.Tested the trading system \n2.Tested the clouds \n3.Added fake shadows to characters and objects \n4.Tweaked the animations a bit\n\nAnsenjeo. #mmorpg #indiegame #ascii",
+    "media": [
+      {
+        "type": "video",
+        "src": "posts/2112626286132601104-01.mp4",
+        "width": 720,
+        "height": 1280,
+        "alt": "Media from Ansenjeo’s saved post",
+        "poster": "posts/2112626286132601104-01-thumb.jpg"
+      },
+      {
+        "type": "video",
+        "src": "posts/2112626286132601104-02.mp4",
+        "width": 720,
+        "height": 1280,
+        "alt": "Media from Ansenjeo’s saved post",
+        "poster": "posts/2112626286132601104-02-thumb.jpg"
+      }
+    ],
+    "metrics": {
+      "likes": 299,
+      "reposts": 19,
+      "quotes": 0,
+      "replies": 13,
+      "views": 3542,
+      "bookmarks": 39,
+      "score": null
+    }
+  },
+  {
+    "id": "7518044532425302016",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7518044532425302016/",
+    "author": {
+      "name": "Petr Sevcovic",
+      "handle": "petrsevcovic",
+      "url": "https://www.linkedin.com/in/petrsevcovic/",
+      "avatar": "posts/7518044532425302016-petrsevcovic-569baab7.jpg"
+    },
+    "created_at": "2026-10-19T20:24:55.043Z",
+    "text": "1.5 days. That's how long it took from my first Figma screen to Forgettable running on my iPhone.\nForgettable is for the thought that ruins my mornings: did I lock the door? Is the oven off? Did I switch off the lights?\nYou can't check from the office, so the doubt follows you all day.\nI started from one belief. A reminder only works if it comes by itself. If you have to remember to open a reminder app, you've already forgotten.\nSo the app reacts to what happens around you:\n→ you leave or arrive somewhere (a 150 m circle the phone watches, even with the app closed)\n→ you drop off or join your home Wi-Fi\n→ a set time, or a real alarm that cuts through silent mode\nAt home it's never just you, so the list can be shared. \"Anna locked the door at 08:12\" means nobody has to ask anymore.\nI designed every screen in Figma and built it with Claude Code. iOS and Android, widgets, Siri, shared households, plus a website with help guides and a privacy policy.\nSetting it up takes under a minute: pick the usual suspects (front door, stove, windows), set your home once, done.\nThe name comes from Neville's Remembrall in Harry Potter. It turned red when he forgot something, but never told him what. This one does.\nWhat's the one thing you always go back to check?\nP.S. Swipe through the slides for the screens. Link to the website is in the first comment.\n#productdesign",
+    "media": [
+      {
+        "type": "image",
+        "src": "posts/7518044532425302016-01.jpg",
+        "width": 1080,
+        "height": 1350,
+        "alt": "Media from Petr Sevcovic’s saved post",
+        "poster": null
+      },
+      {
+        "type": "image",
+        "src": "posts/7518044532425302016-02.jpg",
+        "width": 1080,
+        "height": 1350,
+        "alt": "Media from Petr Sevcovic’s saved post",
+        "poster": null
+      },
+      {
+        "type": "image",
+        "src": "posts/7518044532425302016-03.jpg",
+        "width": 1080,
+        "height": 1350,
+        "alt": "Media from Petr Sevcovic’s saved post",
+        "poster": null
+      },
+      {
+        "type": "image",
+        "src": "posts/7518044532425302016-04.jpg",
+        "width": 1080,
+        "height": 1350,
+        "alt": "Media from Petr Sevcovic’s saved post",
+        "poster": null
+      }
+    ],
+    "metrics": {
+      "likes": null,
+      "reposts": null,
+      "quotes": null,
+      "replies": null,
+      "views": null,
+      "bookmarks": null,
+      "score": null
+    }
+  },
+  {
+    "id": "2112736749281759566",
+    "platform": "x",
+    "url": "https://x.com/poteto/status/2112736749281759566",
+    "author": {
+      "name": "lauren",
+      "handle": "poteto",
+      "url": "https://x.com/poteto",
+      "avatar": "posts/2112736749281759566-2832427459-218371a8.jpg"
+    },
+    "created_at": "2026-10-21T02:44:28.000Z",
+    "text": "there's something really cool about asking your agent to draw a statechart (hypothetical example in this image), then using the /create-formal-verification-skill you made with pstack to find bugs through something like TLA+. you can both understand your code better and how the user flow should work, and fix issues users would otherwise see",
+    "media": [
+      {
+        "type": "image",
+        "src": "posts/2112736749281759566-01.jpg",
+        "width": 2484,
+        "height": 2802,
+        "alt": "Media from lauren’s saved post",
+        "poster": null
+      }
+    ],
+    "metrics": {
+      "likes": 1925,
+      "reposts": 106,
+      "quotes": 13,
+      "replies": 96,
+      "views": 62418,
+      "bookmarks": 2063,
+      "score": null
+    }
+  },
+  {
+    "id": "2112637341890437602",
+    "platform": "x",
+    "url": "https://x.com/miketuritzin/status/2112637341890437602",
+    "author": {
+      "name": "Mike Turitzin",
+      "handle": "miketuritzin",
+      "url": "https://x.com/miketuritzin",
+      "avatar": "posts/2112637341890437602-39017120-84be9ad8.jpg"
+    },
+    "created_at": "2026-10-20T20:09:27.000Z",
+    "text": "Added bloom to my engine.\n\nI'm not a huge fan of super heavy post-processing, but some amount of bloom is needed to show high-dynamic range on an LDR display, and also to avoid harsh edges on bright objects.\n\nLooks nice too!\n\nThis is rendering at 4k in about 0.1ms -\n\n1/",
+    "media": [
+      {
+        "type": "video",
+        "src": "posts/2112637341890437602-01.mp4",
+        "width": 1800,
+        "height": 1522,
+        "alt": "Media from Mike Turitzin’s saved post",
+        "poster": "posts/2112637341890437602-01-thumb.jpg"
+      }
+    ],
+    "metrics": {
+      "likes": 315,
+      "reposts": 7,
+      "quotes": 0,
+      "replies": 14,
+      "views": 7678,
+      "bookmarks": 86,
+      "score": null
+    }
+  },
+  {
+    "id": "7518725328861569024",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7518725328861569024/",
+    "author": {
+      "name": "Matthew J. McCullough",
+      "handle": "matthewjmmccullough",
+      "url": "https://www.linkedin.com/in/matthewjmmccullough/",
+      "avatar": "posts/7518725328861569024-matthewjmmccullough-786afc67.jpg"
+    },
+    "created_at": "2026-10-21T17:30:09.562Z",
+    "text": "If you are building skills for the developer community, please budget very experienced team member time to build evals and garden the set of skills. As models continue to improve, it is beneficial to user outcomes and token efficiency to prune either portions or entire skills that the base model and harness are freshly capable of doing better. This is similar to long-established good habits of tending our code bases as languages, libraries, and SDKs advance.",
+    "media": [],
+    "metrics": {
+      "likes": 6,
+      "reposts": 0,
+      "quotes": null,
+      "replies": 0,
+      "views": null,
+      "bookmarks": null,
+      "score": null
+    }
+  },
+  {
+    "id": "2112658577110520122",
+    "platform": "x",
+    "url": "https://x.com/rauchg/status/2112658577110520122",
+    "author": {
+      "name": "Guillermo Rauch",
+      "handle": "rauchg",
+      "url": "https://x.com/rauchg",
+      "avatar": "posts/2112658577110520122-15540222-c00a3e68.jpg"
+    },
+    "created_at": "2026-10-20T21:33:50.000Z",
+    "text": "Much like we did with @aisdk, we're bringing a truly open-source, runtime-agnostic solution to harness durability.\n\nWe're extending the durability infra that powers @eve and Workflows to all harnesses, like Pi and OpenCode. Local, Vercel, or DIY.\n\nFun fact: even Claude Code and Codex can be made durable (and observable!) this way. The catch: they're not (currently) designed for embedding, which makes them less efficient, less portable, and brings an extra sandbox requirement compared to Pi or Fx.",
+    "media": [
+      {
+        "type": "image",
+        "src": "posts/2112658577110520122-01.jpg",
+        "width": 2620,
+        "height": 1612,
+        "alt": "Media from Guillermo Rauch’s saved post",
+        "poster": null
+      }
+    ],
+    "metrics": {
+      "likes": 434,
+      "reposts": 24,
+      "quotes": 4,
+      "replies": 87,
+      "views": 34731,
+      "bookmarks": 305,
+      "score": null
+    }
+  },
+  {
+    "id": "7517833427027496960",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7517833427027496960/",
+    "author": {
+      "name": "Jason Cui",
+      "handle": "cutuy",
+      "url": "https://www.linkedin.com/in/cutuy/",
+      "avatar": "posts/7517833427027496960-cutuy-573940ad.jpg"
+    },
+    "created_at": "2026-10-19T06:26:03.594Z",
+    "text": "What used to take weeks in C++ now takes one hour or so in Rust with a half-burned ChatGPT Pro plan and much less code. Plus a real-time viz for fun. Most of what I did was to review and agree on some architecture SVGs with the agent before letting it loose.\n\nThe idea is that a performant single-threaded high-bandwidth data recorder owns buffer lifecycles for reuse and performs memory-to-storage DMAs via io_uring as much as possible. While also planning to allow DMAs from \"foreign-owned\" pinned memory like mmap() and CUDA with ref counting for ownership release.\n\nAdding open-source dependencies in Rust really feels like a breeze thanks to the well-maintained crate registry.",
+    "media": [
+      {
+        "type": "video",
+        "src": "posts/7517833427027496960-01.mp4",
+        "width": 750,
+        "height": 720,
+        "alt": "Media from Jason Cui’s saved post",
+        "poster": "posts/7517833427027496960-01-thumb.jpg"
+      }
+    ],
+    "metrics": {
+      "likes": null,
+      "reposts": null,
+      "quotes": null,
+      "replies": null,
+      "views": null,
+      "bookmarks": null,
+      "score": null
+    }
+  },
+  {
+    "id": "2112569613804580898",
+    "platform": "x",
+    "url": "https://x.com/turbopuffer/status/2112569613804580898",
+    "author": {
+      "name": "turbopuffer",
+      "handle": "turbopuffer",
+      "url": "https://x.com/turbopuffer",
+      "avatar": "posts/2112569613804580898-1709608373275017219-c2141d2e.jpg"
+    },
+    "created_at": "2026-10-20T15:40:20.000Z",
+    "text": "native reranking is generally available\n\nretrieve first-stage candidates and reorder them with a reranker model in a single tpuf API call\n\nhttps://turbopuffer.com/docs/reranking",
+    "media": [
+      {
+        "type": "image",
+        "src": "posts/2112569613804580898-01.jpg",
+        "width": 3120,
+        "height": 1806,
+        "alt": "Media from turbopuffer’s saved post",
+        "poster": null
+      }
+    ],
+    "metrics": {
+      "likes": 70,
+      "reposts": 3,
+      "quotes": 2,
+      "replies": 2,
+      "views": 4448,
+      "bookmarks": 19,
+      "score": null
+    }
+  },
+  {
+    "id": "7517992413248970752",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7517992413248970752/",
+    "author": {
+      "name": "Mathias Brandewinder",
+      "handle": "don-syme",
+      "url": "https://www.linkedin.com/in/don-syme/",
+      "avatar": "posts/7517992413248970752-don-syme-c6a9eb69.jpg"
+    },
+    "created_at": "2026-10-19T16:57:48.863Z",
+    "text": "Every time I have used automatic differentiation, I felt like some Dark Magic was taking place. With a lot of hand-waving, I understand why it should work, thanks to the chain rule, but how it performs the magic exactly was never clear to me. So I embarked on a side quest: try and implement it naively from scratch, in F#, to see what lessons I might learn along the way, and hopefully finally figure out how the magic really works.\nMy first attempt was not quite right, but already taught me quite a bit:\nhttps://lnkd.in/gphJyw7V",
+    "media": [],
+    "metrics": {
+      "likes": 19,
+      "reposts": 1,
+      "quotes": null,
+      "replies": 4,
+      "views": null,
+      "bookmarks": null,
+      "score": null
+    }
+  },
+  {
+    "id": "2112320010081501186",
+    "platform": "x",
+    "url": "https://x.com/_jxom/status/2112320010081501186",
+    "author": {
+      "name": "jxom",
+      "handle": "_jxom",
+      "url": "https://x.com/_jxom",
+      "avatar": "posts/2112320010081501186-769075608966103044-f59cb020.jpg"
+    },
+    "created_at": "2026-10-19T23:08:30.000Z",
+    "text": "🚨 Mermaid has been rewritten, again. In Rust!\n\n🧜‍♀️ Introducing Ondine. 🧜‍♀️\n\n- 200B runtime.\n- Renders diagrams in ~50µs.\n- 1,943x smaller, 2.8x faster than Pele.\n- 13,467x smaller, 670x faster than Mermaid.\n- Still 0 dependencies.",
+    "media": [
+      {
+        "type": "video",
+        "src": "posts/2112320010081501186-01.mp4",
+        "width": 1920,
+        "height": 1080,
+        "alt": "Media from jxom’s saved post",
+        "poster": "posts/2112320010081501186-01-thumb.jpg"
+      }
+    ],
+    "metrics": {
+      "likes": 2931,
+      "reposts": 238,
+      "quotes": 21,
+      "replies": 72,
+      "views": 136479,
+      "bookmarks": 2213,
+      "score": null
+    }
+  },
+  {
+    "id": "7518723253385740290",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7518723253385740290/",
+    "author": {
+      "name": "Marc Sun",
+      "handle": "huggingface",
+      "url": "https://www.linkedin.com/company/huggingface/",
+      "avatar": "posts/7518723253385740290-huggingface-2236f05d.jpg"
+    },
+    "created_at": "2026-10-21T17:21:54.730Z",
+    "text": "🤗 transformers serve now speaks 🔊\n\nWe just added an OpenAI-compatible `/v1/audio/speech` endpoint to transformers serve, and we couldn't have picked a better model to launch it with than Phonon, Gradium brand-new on-device TTS: tiny, fast and multilingual.\n\nTest it with:\ntransformers serve gradium/phonon-40m-en\n\nPhonon isn't alone. transformers serve supports:\n• voice cloning from a reference clip\n• streaming, to hear the audio as it's generated\n• instructions, to steer tone and style\n\nAnd we tested it with VibeVoice, Higgs Audio V2 and Phonon. Any TTS model in transformers should work. If yours doesn't, open an issue and we'll add it!\n\nHuge kudos to Eustache Le Bihan for the day-0 transformers integration, and Gradium team for open-sourcing their models. Phonon-31m is Apache 2.0 !",
+    "media": [
+      {
+        "type": "video",
+        "src": "posts/7518723253385740290-01.mp4",
+        "width": 1280,
+        "height": 720,
+        "alt": "Media from Marc Sun’s saved post",
+        "poster": "posts/7518723253385740290-01-thumb.jpg"
+      }
+    ],
+    "metrics": {
+      "likes": null,
+      "reposts": null,
+      "quotes": null,
+      "replies": null,
+      "views": null,
+      "bookmarks": null,
+      "score": null
+    }
+  },
+  {
+    "id": "2112377951714980283",
+    "platform": "x",
+    "url": "https://x.com/RealAstropulse/status/2112377951714980283",
+    "author": {
+      "name": "Astropulse",
+      "handle": "RealAstropulse",
+      "url": "https://x.com/RealAstropulse",
+      "avatar": "posts/2112377951714980283-1569292810834124800-ecebc036.jpg"
+    },
+    "created_at": "2026-10-20T02:58:44.000Z",
+    "text": "Three other AI generator tools are hyping their ability to get exact requested pixel sizes...\n\nRetro Diffusion has had this feature for 4 years, because it's made for pixel art.\n\n12px -> 256px, any size or aspect ratio in between.\nUse Retro Diffusion :)\nhttps://retrodiffusion.ai/",
+    "media": [
+      {
+        "type": "video",
+        "src": "posts/2112377951714980283-01.mp4",
+        "width": 1920,
+        "height": 1080,
+        "alt": "Media from Astropulse’s saved post",
+        "poster": "posts/2112377951714980283-01-thumb.jpg"
+      }
+    ],
+    "metrics": {
+      "likes": 163,
+      "reposts": 15,
+      "quotes": 1,
+      "replies": 9,
+      "views": 7146,
+      "bookmarks": 102,
+      "score": null
+    }
+  },
+  {
+    "id": "7518734010236260352",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7518734010236260352/",
+    "author": {
+      "name": "Reshabh K Sharma",
+      "handle": "reshabh",
+      "url": "https://www.linkedin.com/in/reshabh/",
+      "avatar": "posts/7518734010236260352-reshabh-e3d36d85.jpg"
+    },
+    "created_at": "2026-10-21T18:04:39.363Z",
+    "text": "Very excited to share that ContextCov has been accepted to #ICSE2027! 🎉\n\nCoding agents can read AGENTS.md, but do they follow it? ContextCov turns natural-language repository instructions into executable checks for coding conventions, tooling restrictions, and architectural boundaries.\n\nThis one means a lot to me as a senior PhD student. I carried the project independently, from the initial idea through implementation, evaluation, and writing. Seeing it recognized is a meaningful milestone in my development as an independent researcher.\n\nAn earlier version also won Best Paper at the Agentic Software Engineering Workshop at ACM CAIS earlier this year! \n\nOnly 119 of 2,375 submissions (~5%) received a direct accept. Having served on the shadow PC, I understand concerns about low-effort, AI-generated submissions, but I still find that figure strikingly low.\n\nI am deeply grateful to my advisor and mentors for their guidance and support. Their encouragement has helped me grow as a researcher and take on projects with increasing independence.\n\nPreprint: https://lnkd.in/gNM8HBmb\nCode: https://lnkd.in/gpdN-hpE\n\n#SoftwareEngineering #AgenticAI",
+    "media": [],
+    "metrics": {
+      "likes": 23,
+      "reposts": 0,
+      "quotes": null,
+      "replies": 2,
+      "views": null,
+      "bookmarks": null,
+      "score": null
+    }
+  },
+  {
+    "id": "2112597162924351909",
+    "platform": "x",
+    "url": "https://x.com/steipete/status/2112597162924351909",
+    "author": {
+      "name": "Peter Steinberger 🦞",
+      "handle": "steipete",
+      "url": "https://x.com/steipete",
+      "avatar": "posts/2112597162924351909-25401953-f43bd8f6.png"
+    },
+    "created_at": "2026-10-20T17:29:48.000Z",
+    "text": "Two weeks ago I kicked off a loop to move OpenClaw's Lit-based Web frontend to Solid 2.0.\n\nTook ~6 days until we could remove Lit, and another week to move patterns to idiomatic Solid.\n\nI checked in with the session every other day, overall the process was mostly automatic. Took about ~600 PRs.\n\nResult: Smaller JS and CSS footprint and much more fine-grained update control. Everything feeling more snappy and responsive. https://team.openclaw.ai/chat/roboclaw/timeline-of-solid-js-to-lit-pr-refactors-5ba10f632c29434c9f79a92c3c16a7a3",
+    "media": [
+      {
+        "type": "image",
+        "src": "posts/2112597162924351909-01.jpg",
+        "width": 2894,
+        "height": 2990,
+        "alt": "Media from Peter Steinberger 🦞’s saved post",
+        "poster": null
+      }
+    ],
+    "metrics": {
+      "likes": 984,
+      "reposts": 41,
+      "quotes": 17,
+      "replies": 102,
+      "views": 125427,
+      "bookmarks": 356,
+      "score": null
+    }
+  },
+  {
+    "id": "7518747829385801728",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7518747829385801728/",
+    "author": {
+      "name": "Marco Nicosia",
+      "handle": "menicosia",
+      "url": "https://www.linkedin.com/in/menicosia/",
+      "avatar": "posts/7518747829385801728-menicosia-3f6a0e7c.jpg"
+    },
+    "created_at": "2026-10-21T18:59:34.105Z",
+    "text": "AMD has several presentations accepted/presented at this year's PyTorch Conf about our effort to create a lower-level DSL than Triton which allows model developers to take better advantage of the underlying hardware while remaining in Python.\n\nIn keeping with our open source ecosystem strategy, efforts are under way to integrate FlyDSL as a back-end at several different model developer APIs, including PyTorch itself.\n\nPersonally, I'm really enjoying the conference, especially with respect to progress in the RL space - it's called \"reinforcement learning,\" today, but maybe some day in the future it'll simply be \"real-time learning.\" An ML holy grail...",
+    "media": [],
+    "metrics": {
+      "likes": 1,
+      "reposts": 0,
+      "quotes": null,
+      "replies": 0,
+      "views": null,
+      "bookmarks": null,
+      "score": null
+    }
+  },
+  {
+    "id": "2105722745250328698",
+    "platform": "x",
+    "url": "https://x.com/LargeLangMammal/status/2105722745250328698",
+    "author": {
+      "name": "Russell Horton",
+      "handle": "LargeLangMammal",
+      "url": "https://x.com/LargeLangMammal",
+      "avatar": "posts/2105722745250328698-893166014656946176-b7582568.jpg"
+    },
+    "created_at": "2026-10-01T18:13:19.000Z",
+    "text": "I just got here like five minutes ago, but I can promise you, we all really care about building tools that are fun, useful and sincere. Studio is personal software for you, and it's personal to us as well. Let's build it together!",
+    "media": [],
+    "metrics": {
+      "likes": 6,
+      "reposts": 0,
+      "quotes": 0,
+      "replies": 0,
+      "views": 182,
+      "bookmarks": 0,
+      "score": null
+    }
+  },
+  {
+    "id": "7518255986101399552",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7518255986101399552/",
+    "author": {
+      "name": "∗codeplain",
+      "handle": "codeplain",
+      "url": "https://www.linkedin.com/company/codeplain/",
+      "avatar": "posts/7518255986101399552-codeplain-d50cc5f3.jpg"
+    },
+    "created_at": "2026-10-20T10:25:09.528Z",
+    "text": "Feels so cool to be part of Garaža's Frontier Hackathon!  😎 \n\nIt takes place November 7-8 in Belgrade and is open for teams 2-4, under the age of 26.\n\nWe're joining as sponsors and technology providers and if you're thinking about signing up, make sure to check out what we're building at *codeplain and how we approach software regeneration:\nhttps://lnkd.in/dYtVzQ_v",
+    "media": [],
+    "metrics": {
+      "likes": 3,
+      "reposts": 0,
+      "quotes": null,
+      "replies": 1,
+      "views": null,
+      "bookmarks": null,
+      "score": null
+    }
+  },
+  {
+    "id": "2112517943582196053",
+    "platform": "x",
+    "url": "https://x.com/svpino/status/2112517943582196053",
+    "author": {
+      "name": "Santiago",
+      "handle": "svpino",
+      "url": "https://x.com/svpino",
+      "avatar": "posts/2112517943582196053-18737039-084bbdfc.jpg"
+    },
+    "created_at": "2026-10-20T12:15:01.000Z",
+    "text": "In 1994, software was dead. People told me programming was for nerds and that I should become a doctor or a lawyer instead.\n\nIn 2004, software was dead. People told me that someone from India would take my job for $5/hour.\n\nIn 2014, software was dead. People told me that no-code was going to kill every job and doom my career.\n\nIn 2024, software was dead with Devin, Windsurf, Copilot, and OpenAI o1.\n\nWe kill software every 10 years, and yet the demand for good Software Engineers has never been higher.",
+    "media": [],
+    "metrics": {
+      "likes": 4317,
+      "reposts": 448,
+      "quotes": 62,
+      "replies": 303,
+      "views": 230616,
+      "bookmarks": 685,
+      "score": null
+    }
+  },
+  {
+    "id": "2112574980559138948",
+    "platform": "x",
+    "url": "https://x.com/GruPiotr/status/2112574980559138948",
+    "author": {
+      "name": "Piotr Grudzień",
+      "handle": "GruPiotr",
+      "url": "https://x.com/GruPiotr",
+      "avatar": "posts/2112574980559138948-2574493753-d7b55e44.jpg"
+    },
+    "created_at": "2026-10-20T16:01:39.000Z",
+    "text": "it used to feel like the internet is moving and we're trying to catch up and read what's there and now it's the other way round that websites and tweets just sit there waiting to be slammed by ai agents",
+    "media": [],
+    "metrics": {
+      "likes": 0,
+      "reposts": 0,
+      "quotes": 0,
+      "replies": 0,
+      "views": 120,
+      "bookmarks": 0,
+      "score": null
+    }
+  },
+  {
+    "id": "2112802194701652361",
+    "platform": "x",
+    "url": "https://x.com/Eric_Neuman/status/2112802194701652361",
+    "author": {
+      "name": "Eric Neuman",
+      "handle": "Eric_Neuman",
+      "url": "https://x.com/Eric_Neuman",
+      "avatar": "posts/2112802194701652361-82763823-91ca4d76.jpg"
+    },
+    "created_at": "2026-10-21T07:04:31.000Z",
+    "text": "AI usefulness in every industry is capped by the speed with which generated proposals can be \"noped\" to get to the actual solution. In software, tests provide nearly instant nopes. For everything else there's nopekit. https://github.com/neuman/nopekit",
+    "media": [],
+    "metrics": {
+      "likes": 1,
+      "reposts": 0,
+      "quotes": 0,
+      "replies": 0,
+      "views": 9,
+      "bookmarks": 0,
+      "score": null
+    }
+  },
+  {
+    "id": "2112279668342538469",
+    "platform": "x",
+    "url": "https://x.com/mustafa01ali/status/2112279668342538469",
+    "author": {
+      "name": "Mustafa Ali",
+      "handle": "mustafa01ali",
+      "url": "https://x.com/mustafa01ali",
+      "avatar": "posts/2112279668342538469-148628641-704a1431.jpg"
+    },
+    "created_at": "2026-10-19T20:28:11.000Z",
+    "text": "We're making Shopify's mobile apps self-healing.\n\nAgents watch production 24x7 for new crashes, reproduce them, write and verify a fix, then generate a short video explaining the root cause and the fix. Much faster to digest than the usual wall of text. \n\nAn engineer then just reviews and ships it.",
+    "media": [
+      {
+        "type": "video",
+        "src": "posts/2112279668342538469-01.mp4",
+        "width": 1920,
+        "height": 1080,
+        "alt": "Media from Mustafa Ali’s saved post",
+        "poster": "posts/2112279668342538469-01-thumb.jpg"
+      }
+    ],
+    "metrics": {
+      "likes": 1799,
+      "reposts": 96,
+      "quotes": 45,
+      "replies": 102,
+      "views": 147439,
+      "bookmarks": 1374,
+      "score": null
+    }
   }
 ]

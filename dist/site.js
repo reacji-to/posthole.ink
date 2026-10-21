@@ -3,8 +3,17 @@ document.querySelectorAll('[data-copy]').forEach(button => {
   button.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(button.dataset.copy);
-      button.textContent = 'Copied!';
-      copyStatus.textContent = '';
+      button.classList.add('copied');
+      const label = button.getAttribute('aria-label');
+      button.setAttribute('aria-label', 'Copied');
+      copyStatus.textContent = 'Copied to clipboard.';
+      clearTimeout(button.copyReset);
+      button.copyReset = setTimeout(() => {
+        button.classList.remove('copied');
+        button.setAttribute('aria-label', label === 'Copied' ? button.dataset.label : label);
+        copyStatus.textContent = '';
+      }, 2000);
+      if (label !== 'Copied') button.dataset.label = label;
     } catch {
       const range = document.createRange();
       range.selectNodeContents(button.previousElementSibling);
@@ -45,3 +54,5 @@ document.querySelectorAll('[data-expand]').forEach(details => {
     details.querySelector('summary').textContent = details.open ? details.dataset.close : details.dataset.expand;
   });
 });
+
+filterPosts();
