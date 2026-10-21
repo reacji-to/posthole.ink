@@ -1,3 +1,9 @@
 # posthole landing page
 
-A small, quiet product page. Warm paper background, dark ink, green accents drawn from the existing shovel icon. A large serif statement paired with the plain UI sans used by the extension. Source-like demonstration cards are the only substantial visual. Keep a single column, direct download and repository links, and concise expandable installation instructions. No invented usage statistics, testimonials, or archived browsing data. Honor reduced motion and narrow screens.
+Reference: the in-progress reacji.to redesign in /Users/h/imbue/reacji-to-web (local preview port 4178), selected by the user. Match its one-screen two-column composition, self-hosted Manrope, blue accent, near-white surface, compact header/footer, and dark agent setup command. Preserve posthole’s shovel branding and product truth.
+
+Desktop: 1320px maximum frame, 40px horizontal padding, a 1:1.25 hero split. Heading 800 weight, 42–66px, -.04em tracking. The browser-framed archive demo occupies the right column and scrolls internally. Below 800px, stack copy and demo; on short screens use normal document scrolling. Installation details expand inline, allowing the page to grow.
+
+Colors: background #fcfcfd, ink #14161b, secondary #3c424e, muted #646b78, rule #e7e9ee, accent #2456e8. Follow the reference’s dark mode while keeping the archive demo light. Honor reduced motion and keyboard focus.
+
+The archive preview uses clearly illustrative posts, rendered as text and markup. Its platform filters, search, clear search and reply expansion work locally. No private archive data is published. The setup prompt points to the extension README; the ZIP download and manual installation instructions remain available.
