@@ -27,7 +27,7 @@ function filterPosts() {
     if (!post.hidden) count++;
   });
   document.querySelector('.empty').hidden = count > 0;
-  document.querySelector('.feed-end').textContent = `${count} example ${count === 1 ? 'post' : 'posts'} · real text, not screenshots`;
+  document.querySelector('.feed-end').textContent = `${count} saved ${count === 1 ? 'post' : 'posts'} · real text, not screenshots`;
 }
 filters.forEach(button => button.addEventListener('click', () => {
   platform = button.dataset.filter;
@@ -40,6 +40,8 @@ document.querySelector('#clear-search').addEventListener('click', () => {
   filterPosts();
   search.focus();
 });
-document.querySelector('.replies').addEventListener('toggle', event => {
-  event.target.querySelector('summary').textContent = event.target.open ? 'Hide reply' : 'Show 1 reply';
+document.querySelectorAll('[data-expand]').forEach(details => {
+  details.addEventListener('toggle', () => {
+    details.querySelector('summary').textContent = details.open ? details.dataset.close : details.dataset.expand;
+  });
 });

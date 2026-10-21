@@ -1,0 +1,82 @@
+[
+  {
+    "id": "2112666023174566117",
+    "platform": "x",
+    "url": "https://x.com/LukeW/status/2112666023174566117",
+    "author": {
+      "name": "Luke Wroblewski",
+      "handle": "LukeW",
+      "url": "https://x.com/LukeW",
+      "avatar": "posts/13889622-avatar.png"
+    },
+    "created_at": "2026-10-20T22:03:26.000Z",
+    "text": "and as @Wattenberger reminded me... window management. everyone is searching for the best tabs, panels, canvas, sidebar approach.\n\naka re-thinking the  SaaS shape.",
+    "media": [
+      {
+        "src": "posts/2112666023174566117-1.jpg",
+        "width": 1200,
+        "height": 800,
+        "alt": "A sketch labeling the left rail, sidebar, tabs, main content, right sidebar, and bottom bar of an application."
+      }
+    ],
+    "metrics": {
+      "likes": 4,
+      "reposts": 0,
+      "quotes": 0,
+      "replies": 0,
+      "views": 1196,
+      "bookmarks": 4
+    },
+    "parent": {
+      "id": "2112610747792662815",
+      "platform": "x",
+      "url": "https://x.com/LukeW/status/2112610747792662815",
+      "author": {
+        "name": "Luke Wroblewski",
+        "handle": "LukeW",
+        "url": "https://x.com/LukeW",
+        "avatar": "posts/13889622-avatar.png"
+      },
+      "created_at": "2026-10-20T18:23:47.000Z",
+      "text": "all our AI-native companies are wrestling with these  agentic software design/UI needs:\n\n- tracking what's happening (many agents)\nhttps://www.lukew.com/ff/2165/many-agents-many-views\n- showing what got done (by agents)\nhttps://www.lukew.com/ff/2142/showing-the-work-of-agents-in-ui\n- keeping design coherent (agent instructions)\nhttps://www.lukew.com/ff/2164/design-systems-for-ai-agents\n- multi-player & collaboration (people+\nagents)\nhttps://www.lukew.com/ff/2153/collaborative-steering\n- asset creation tools (agent workflows)\nhttps://www.lukew.com/ff/2146/consistent-character-maker-update",
+      "media": [
+        {
+          "src": "posts/2112610747792662815-1.jpg",
+          "width": 2332,
+          "height": 1310,
+          "alt": "Illustration accompanying Luke Wroblewski’s post about agentic software interfaces."
+        }
+      ],
+      "metrics": {
+        "likes": 49,
+        "reposts": 0,
+        "quotes": 0,
+        "replies": 4,
+        "views": 6627,
+        "bookmarks": 107
+      }
+    }
+  },
+  {
+    "id": "7518669068011204608",
+    "platform": "linkedin",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7518669068011204608/",
+    "author": {
+      "name": "∗codeplain",
+      "handle": "codeplain",
+      "url": "https://www.linkedin.com/company/codeplain/",
+      "avatar": "posts/codeplain-avatar.jpg"
+    },
+    "created_at": "2026-10-21T13:46:35.930Z",
+    "text": "What if the future of software development isn’t about maintaining code, but regenerating it?\n\nDusan will take the stage at AI2FUTURE to explore this idea in his talk:\n\n“AI code will be regenerated, not maintained”\n\n📅 October 29, 9:30 - 10:00 \n📍Zagreb, AI2FUTURE\n\nHe’ll share what we’re learning at *codeplain, where regenerative software approach already works and what this could mean for the future of software development.\n\nIf you’re attending the conference, you’re welcome to join the conversation!\n\nExplore regenerative software idea here: https://lnkd.in/dp3GYGjB\n\n#AI2Future #RegenerativeSoftware #AI #SoftwareDevelopment",
+    "media": [
+      {
+        "src": "posts/7518669068011204608-1.jpg",
+        "width": 1080,
+        "height": 1350,
+        "alt": "AI2FUTURE 2026 speaker announcement for Dušan Omerčević, CEO and founder of Codeplain."
+      }
+    ],
+    "metrics": {}
+  }
+]

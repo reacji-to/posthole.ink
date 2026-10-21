@@ -20,4 +20,4 @@ Keep the existing posthole name and shovel icon. The user wants a tiny, simple w
 
 ## Evidence on Hand
 
-README.md, SCHEMA.md, manifest.json, the extension implementation, and the working local viewer. The public demonstration must use illustrative posts, not the user's browsing archive.
+README.md, SCHEMA.md, manifest.json, the extension implementation, and the working local viewer. The user explicitly requested selected real posts from their archive for the public demonstration. Publish only the curated posts and their media; exclude capture timestamps, browsing history, and raw responses.
