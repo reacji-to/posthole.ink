@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>posthole — keep the posts you pass</title>
+  <meta name="description" content="A little browser extension that saves the posts you scroll past, with their images, videos, and reply threads. Your feed, in a folder you own.">
+  <meta property="og:title" content="posthole — keep the posts you pass">
+  <meta property="og:description" content="Dig a hole. Put the posts in the hole. Come back and read them later.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f6f5ef">
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><a class="brand" href="./"><img src="icon.png" width="32" height="32" alt="">posthole</a><a class="repo" href="https://github.com/reacji-to/posthole">GitHub <span aria-hidden="true">↗</span></a></header>
+  <main>
+    <section class="intro">
+      <h1>Keep the posts<br>you pass.</h1>
+      <p class="lead">A little browser extension that saves your scroll.<br class="wide"> Posts, pictures, videos, and the replies.<br class="wide"> All in a folder you own.</p>
+      <div class="cta"><a class="download" href="posthole.zip" download>Download posthole <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/></svg></a><a href="#install">How to install</a></div>
+      <p class="compatibility">For Helium & Chrome · macOS & Linux · Free</p>
+    </section>
+
+    <figure class="demo" aria-label="Illustrative preview of the posthole archive">
+      <div class="demo-toolbar"><span class="mini-brand"><img src="icon.png" alt="" width="19" height="19">posthole</span><span class="demo-tab">All</span><span>X</span><span>LinkedIn</span><span class="demo-search">Search your posts</span></div>
+      <div class="demo-feed">
+        <div class="session">Today, 10:42 AM · x.com/home</div>
+        <article class="sample-card">
+          <div class="avatar">p.</div>
+          <div class="post-main">
+            <div class="post-head"><b>posthole</b><span>@posthole · now</span><span class="ellipsis" aria-hidden="true">···</span></div>
+            <p>That post you meant to save.<br><br>The useful thread. The video you want to watch again. The link you definitely remember seeing somewhere.</p>
+            <div class="sample-quote"><b>Also kept</b><p>The images, the original data, and the conversation underneath.</p></div>
+            <div class="sample-actions" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 11a9 9 0 0 1-9 9H5l-3 2V11a9 9 0 0 1 19 0Z"/></svg><svg viewBox="0 0 24 24"><path d="m3 8 4-4 4 4M7 4v12h7m7 0-4 4-4-4m4 4V8h-7"/></svg><svg viewBox="0 0 24 24"><path d="M12 21S2 15 2 8a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 7-10 13-10 13Z"/></svg><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4Z"/></svg></div>
+          </div>
+        </article>
+        <div class="sample-saved"><span>X · saved to your computer</span><span>With the replies</span></div>
+      </div>
+      <figcaption>An example of your archive. Real text and media, rebuilt from data.</figcaption>
+    </figure>
+
+    <section class="about">
+      <h2>Browse now. Find it later.</h2>
+      <p>posthole keeps posts from <strong>X, LinkedIn, Bluesky, Threads, and Hacker News</strong> as you browse. Search them, replay the videos, and unfold the reply threads in a local viewer that feels like the original sites.</p>
+      <p>The files stay on your computer by default. No posthole account. No subscription. Just your posts, their media, and structured data you can use however you like.</p>
+    </section>
+
+    <section class="install" id="install">
+      <h2>A small bit of setup.</h2>
+      <p>It’s an unpacked extension for now. You’ll need <a href="https://nodejs.org/en/download">Node.js 20 or newer</a> and a few minutes.</p>
+      <ol>
+        <li><strong>Download and unzip.</strong> Keep the <code>posthole</code> folder somewhere permanent.</li>
+        <li><strong>Connect the file writer.</strong> Open a terminal in that folder and run:<div class="command"><code>node scripts/install-host.mjs</code><button type="button" data-copy="node scripts/install-host.mjs" aria-label="Copy install command">Copy</button></div><span class="step-note">This lets the extension save files to your computer.</span></li>
+        <li><strong>Load the extension.</strong> Open <code>chrome://extensions</code> (or <code>helium://extensions</code>), turn on <strong>Developer mode</strong>, click <strong>Load unpacked</strong>, and choose the <code>dist</code> folder inside posthole.</li>
+      </ol>
+      <details><summary>Open your archive</summary><p>The default save folder is <code>~/posthole</code>. To browse it as cards, install <a href="https://bun.sh">Bun</a>, open a terminal in the extension folder, and run:</p><div class="command"><code>cd viewer && bun install && bun start</code><button type="button" data-copy="cd viewer && bun install && bun start" aria-label="Copy viewer command">Copy</button></div><p>Then visit <a href="http://localhost:4747">localhost:4747</a>. You can change the save folder or pause capturing in the extension’s settings.</p></details>
+      <details><summary>What gets saved?</summary><p>Posts the supported sites load while you browse, original images and videos, author avatars, link previews, and reply threads fetched in the background. Posts are stored as JSON alongside their media. Ads are skipped. You can turn off sites, media downloads, or background reply fetching in settings.</p><p>Optional GitHub sync can publish your archive and build a searchable database. That requires your own setup; a published archive can be public. <a href="https://github.com/reacji-to/posthole#publish-to-github">Read the details.</a></p></details>
+    </section>
+  </main>
+  <footer><span>Dig a hole. Put the posts in the hole.</span><a href="https://github.com/reacji-to/posthole">Made to be yours. Source on GitHub ↗</a></footer>
+  <script src="site.js" defer></script>
+</body>
+</html>
