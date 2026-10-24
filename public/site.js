@@ -36,7 +36,7 @@ const description = document.querySelector('#style-description');
 const tourStatus = document.querySelector('#tour-status');
 const styles = [...picker.options];
 const descriptions = {
-  original: 'Every post in its native layout.',
+  original: '',
   hackernews: 'Headlines and rabbit holes. Open one to read the post.',
   x: 'A clean, continuous timeline, whatever the source.',
   linkedin: 'A little more room for the whole story.',
@@ -64,7 +64,7 @@ function playback(value) {
   playing = value;
   play.setAttribute('aria-pressed', String(playing));
   play.setAttribute('aria-label', playing ? 'Pause style tour' : 'Play style tour');
-  tourStatus.textContent = playing ? 'Auto-playing' : 'Explore at your pace';
+  tourStatus.textContent = playing ? 'Auto-playing' : '';
   schedule();
 }
 function updateFrame() {
@@ -84,6 +84,7 @@ function selectStyle(value, manual = false) {
   position.textContent = `${index + 1} / ${styles.length}`;
   position.setAttribute('aria-label', `Style ${index + 1} of ${styles.length}`);
   description.textContent = descriptions[value];
+  description.hidden = !descriptions[value];
   frame.title = `Saved posts in ${label} style`;
   originalFeed.hidden = value !== 'original';
   frame.hidden = value === 'original';
