@@ -1,0 +1,208 @@
+// Local presentation preferences and one-post-at-a-time navigation. Keeps never
+// mutate the archive or interact with the source social network.
+export function initInterfaceControls(feed, loadNext) {
+  document.documentElement.classList.add('js');
+  const picker = document.querySelector('#interface-select');
+  const view = document.body.dataset.view;
+  const allowed = [...picker.options].map(option => option.value);
+  try {
+    const remembered = localStorage.getItem('posthole.interface');
+    if (!new URLSearchParams(location.search).has('view') && allowed.includes(remembered) && remembered !== view) {
+      const url = new URL(location.href); url.searchParams.set('view', remembered); location.replace(url); return;
+    }
+    localStorage.setItem('posthole.interface', view);
+  } catch { /* The viewer also works with browser storage disabled. */ }
+  picker.addEventListener('change', () => picker.form.requestSubmit());
+  if (!['ipod', 'ipod-color', 'tinder'].includes(view)) return;
+  const player = view !== 'tinder';
+  const status = document.querySelector('.deck-status');
+  const position = document.querySelector('[data-position]');
+  const menu = document.querySelector('.ipod-list');
+  const keptButton = document.querySelector('.kept-filter');
+  const empty = document.createElement('p');
+  empty.className = 'deck-empty'; empty.hidden = true; feed.append(empty);
+  let kept = new Set();
+  try { const data = JSON.parse(localStorage.getItem('posthole.kept') || '[]'); if (Array.isArray(data)) kept = new Set(data.filter(key => typeof key === 'string')); } catch {}
+  let onlyKept = false, index = 0, menuIndex = 0, busy = false, menuOpen = false;
+  const all = () => [...feed.children].filter(el => el.matches('.post-entry'));
+  const cards = () => all().filter(el => !onlyKept || kept.has(el.dataset.key));
+  const current = () => cards()[index];
+  const say = message => { status.textContent = message; };
+  function persist() {
+    try { localStorage.setItem('posthole.kept', JSON.stringify([...kept])); return true; }
+    catch { say('Browser storage is unavailable. Keeps will last until this page closes.'); return false; }
+  }
+  function show() {
+    const list = cards();
+    index = Math.max(0, Math.min(index, list.length - 1));
+    menuIndex = Math.max(0, Math.min(menuIndex, list.length - 1));
+    const selectedIndex = menuOpen ? menuIndex : index;
+    for (const el of all()) {
+      const active = el === list[index];
+      el.classList.toggle('is-active', active);
+      el.classList.toggle('is-kept', kept.has(el.dataset.key));
+      if (!active || menuOpen) el.querySelectorAll('video').forEach(video => video.pause());
+    }
+    const more = !!feed.querySelector('.more[data-next]') && (!onlyKept || list.length < kept.size);
+    position.textContent = list.length ? `${selectedIndex + 1} / ${list.length}${more ? '+' : ''}` : '0 posts';
+    empty.hidden = list.length > 0 || !!feed.querySelector('.empty');
+    empty.textContent = onlyKept ? 'No kept posts match these filters. Keep a post with the heart, or return to all posts.' : 'No saved posts here yet.';
+    document.querySelectorAll('[data-deck="previous"]').forEach(b => { b.disabled = selectedIndex === 0 || busy; });
+    document.querySelectorAll('[data-deck="next"]').forEach(b => { b.disabled = busy || (!more && selectedIndex >= list.length - 1); });
+    document.querySelectorAll('[data-deck="keep"],[data-deck="select"],[data-deck="play"]').forEach(b => { b.disabled = busy || !list.length; });
+    const menuButton = document.querySelector('[data-deck=menu]');
+    if (menuButton) menuButton.disabled = busy;
+    const keep = document.querySelector('[data-deck="keep"]');
+    if (keep) { const saved = kept.has(current()?.dataset.key); keep.setAttribute('aria-label', saved ? 'Unkeep post' : 'Keep post'); keep.setAttribute('aria-pressed', String(saved)); }
+    const count = document.querySelector('[data-kept-count]'); if (count) count.textContent = kept.size;
+    if (menu) {
+      menu.replaceChildren(...list.map((el, i) => {
+        const b = document.createElement('button'); b.textContent = el.dataset.title;
+        b.dataset.postIndex = String(i);
+        b.setAttribute('aria-current', String(i === selectedIndex));
+        b.addEventListener('click', () => { menuIndex = i; openSelected(); });
+        return b;
+      }));
+      if (more) {
+        const load = document.createElement('button'); load.type = 'button';
+        load.textContent = busy ? 'Loading…' : 'Load more posts'; load.disabled = busy;
+        load.addEventListener('click', async () => {
+          if (busy) return;
+          busy = true; show();
+          try { if (!(await ensure(list.length))) say('Couldn’t load more posts. Try again.'); }
+          finally { busy = false; show(); menu.focus(); }
+        });
+        menu.append(load);
+      }
+      if (!list.length) {
+        const message = document.createElement('p'); message.className = 'ipod-menu-empty';
+        message.textContent = 'No posts match these filters.'; menu.append(message);
+      }
+      if (menuOpen) {
+        const selected = menu.querySelector('[aria-current="true"]');
+        if (selected) {
+          const row = selected.getBoundingClientRect(), screen = menu.getBoundingClientRect();
+          if (row.top < screen.top) menu.scrollTop -= screen.top - row.top;
+          else if (row.bottom > screen.bottom) menu.scrollTop += row.bottom - screen.bottom;
+        }
+      }
+    }
+  }
+  function setMenu(open) {
+    if (!menu) return;
+    if (open && !menuOpen) menuIndex = index;
+    menuOpen = open;
+    menu.hidden = !open;
+    feed.hidden = open;
+    document.querySelector('[data-player-title]').textContent = open ? 'Posts' : 'Postpod';
+    document.querySelector('[data-deck="menu"]').setAttribute('aria-expanded', String(open));
+    show();
+    (open ? menu : feed).focus();
+  }
+  function openSelected() {
+    if (busy || !cards().length) return;
+    if (menuOpen) index = menuIndex;
+    setMenu(false); feed.scrollTop = 0;
+    document.dispatchEvent(new CustomEvent('posthole:read', {detail:current()?.dataset.key}));
+  }
+  async function ensure(target) {
+    if (onlyKept && cards().length >= kept.size) return true;
+    while (cards().length <= target && feed.querySelector('.more[data-next]')) {
+      const loaded = await loadNext();
+      if (!loaded) return false;
+    }
+    return true;
+  }
+  async function navigate(delta) {
+    if (busy) return;
+    busy = true; show();
+    const target = Math.max(0, (menuOpen ? menuIndex : index) + delta);
+    try {
+      if (await ensure(target)) {
+        if (menuOpen) menuIndex = Math.min(target, cards().length - 1);
+        else { index = Math.min(target, cards().length - 1); feed.scrollTop = 0; }
+        if (target >= cards().length) say('You’ve reached the end. Go back or change your filters.');
+        else say('');
+      } else say('Couldn’t load more posts. Try Next again.');
+    } finally { busy = false; show(); }
+  }
+  async function keepCurrent() {
+    if (busy || !current()) return;
+    const key = current().dataset.key;
+    const wasKept = kept.has(key);
+    wasKept ? kept.delete(key) : kept.add(key);
+    const stored = persist();
+    if (onlyKept && wasKept) { busy = true; try { await ensure(index); } finally { busy = false; show(); } }
+    else if (!wasKept) await navigate(1);
+    else show();
+    if (stored) say(wasKept ? 'Removed from kept posts. The archive is unchanged.' : 'Kept in this browser.');
+  }
+  function playCurrent() {
+    if (busy) return;
+    if (menuOpen) openSelected();
+    const video = current()?.querySelector('video');
+    if (video) {
+      if (video.paused) video.play().catch(() => say('This saved video could not be played.'));
+      else video.pause();
+    } else say('This post has no video.');
+  }
+  function scrollPlayer(direction) {
+    if (busy) return;
+    if (menuOpen) navigate(direction);
+    else feed.scrollBy({top:direction * Math.max(40, Math.min(100, feed.clientHeight * .3)),behavior:'auto'});
+  }
+  document.querySelectorAll('[data-deck]').forEach(button => button.addEventListener('click', () => {
+    const action = button.dataset.deck;
+    if (action === 'next') navigate(1);
+    if (action === 'previous') navigate(-1);
+    if (action === 'keep') keepCurrent();
+    if (action === 'menu' && !busy) setMenu(true);
+    if (action === 'select') openSelected();
+    if (action === 'play') playCurrent();
+  }));
+  keptButton?.addEventListener('click', async () => {
+    if (busy) return;
+    onlyKept = !onlyKept; index = 0; busy = true;
+    keptButton.setAttribute('aria-pressed', String(onlyKept)); show();
+    try { if (onlyKept && kept.size) { say('Finding your kept posts…'); if (!(await ensure(0))) { say('Couldn’t load kept posts. Turn the filter off and on to retry.'); return; } } say(''); }
+    finally { busy = false; show(); feed.scrollTop = 0; }
+  });
+  document.addEventListener('keydown', event => {
+    if (event.target.closest('input,select,textarea,button:not([data-deck]):not([data-post-index]),a,summary,[contenteditable]') || event.altKey || event.metaKey || event.ctrlKey) return;
+    if (player) {
+      if (event.key === 'ArrowRight') { event.preventDefault(); if (menuOpen) openSelected(); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); if (!busy) setMenu(true); }
+      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') { event.preventDefault(); scrollPlayer(event.key === 'ArrowDown' ? 1 : -1); }
+      if (event.key === ' ') { event.preventDefault(); if (!event.repeat) playCurrent(); }
+      if (event.key === 'Escape' && menuOpen) { event.preventDefault(); setMenu(false); }
+      if (event.key === 'Enter' && menuOpen) { event.preventDefault(); openSelected(); }
+      return;
+    }
+    if (event.target.closest('video')) return;
+    if (event.key === 'ArrowRight') { event.preventDefault(); navigate(1); }
+    if (event.key === 'ArrowLeft') { event.preventDefault(); navigate(-1); }
+  });
+  if (player) {
+    let lastWheel = 0;
+    document.querySelector('.click-wheel').addEventListener('wheel', event => {
+      event.preventDefault();
+      if (Date.now() - lastWheel < 180 || Math.abs(event.deltaY) < 3) return;
+      lastWheel = Date.now(); scrollPlayer(event.deltaY > 0 ? 1 : -1);
+    }, {passive:false});
+  } else {
+    let start;
+    feed.addEventListener('pointerdown', event => {
+      if (event.target.closest('a,button,video,summary') || event.button !== 0) return;
+      start = {x:event.clientX,y:event.clientY,id:event.pointerId};
+      feed.setPointerCapture(event.pointerId);
+    });
+    feed.addEventListener('pointerup', event => {
+      if (!start || event.pointerId !== start.id) return;
+      const dx = event.clientX - start.x, dy = event.clientY - start.y; start = null;
+      if (Math.abs(dx) < 85 || Math.abs(dx) < Math.abs(dy) * 1.5 || window.getSelection()?.toString()) return;
+      if (dx > 0) keepCurrent(); else navigate(1);
+    });
+    feed.addEventListener('pointercancel', () => { start = null; });
+  }
+  show();
+}
