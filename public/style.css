@@ -34,3 +34,5 @@
 @media(max-width:1100px){#tour-status{display:none}.style-controls{gap:5px}.style-picker{gap:6px}.style-picker label{font-size:11px}}
 @media(max-width:800px){body{height:auto;min-height:100dvh;overflow:auto}.hero{height:auto}.demo-column{height:560px;flex:none}.style-controls{padding:8px 10px 0}.style-caption{padding-inline:10px}.style-picker select{max-width:none}.style-transport button{width:36px;height:36px}.hero-promise{max-width:38ch}footer{margin-top:14px}}
 @media(min-width:801px) and (max-height:740px){.hero-promise{margin-bottom:22px}.try-site{margin-top:22px}}
+
+.style-caption[hidden]{display:none}

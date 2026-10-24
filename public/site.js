@@ -32,23 +32,9 @@ const picker = document.querySelector('#demo-style');
 const frame = document.querySelector('#style-preview');
 const originalFeed = document.querySelector('.archive-feed');
 const play = document.querySelector('#play-styles');
-const description = document.querySelector('#style-description');
-const tourStatus = document.querySelector('#tour-status');
 const styles = [...picker.options];
-const descriptions = {
-  original: '',
-  hackernews: 'Headlines and rabbit holes. Open one to read the post.',
-  x: 'A clean, continuous timeline, whatever the source.',
-  linkedin: 'A little more room for the whole story.',
-  ipod: 'Your archive on a classic click wheel. Try MENU or Next.',
-  'ipod-color': 'A pocket-sized archive. Same click wheel, full color.',
-  tinder: 'Skip left. Keep right. Try the buttons or swipe a post.',
-  gallery: 'Pictures first. Follow your eye.',
-  terminal: 'Just the feed, straight to stdout.',
-  netflix: 'Your posts as a catalogue. Pick one to read or play.',
-};
-// Lead with the distinctive formats, then complete a tour of all ten.
-const tour = ['original', 'ipod-color', 'ipod', 'tinder', 'gallery', 'netflix', 'terminal', 'hackernews', 'x', 'linkedin'];
+// Lead with the distinctive formats, then complete a tour of all available styles.
+const tour = ['original', 'ipod-color', 'ipod', 'tinder', 'gallery', 'netflix', 'terminal', 'hackernews'];
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let playing = !reducedMotion.matches;
 let timer;
@@ -64,7 +50,6 @@ function playback(value) {
   playing = value;
   play.setAttribute('aria-pressed', String(playing));
   play.setAttribute('aria-label', playing ? 'Pause style tour' : 'Play style tour');
-  tourStatus.textContent = playing ? 'Auto-playing' : '';
   schedule();
 }
 function updateFrame() {
@@ -83,8 +68,6 @@ function selectStyle(value, manual = false) {
   const position = document.querySelector('#style-position');
   position.textContent = `${index + 1} / ${styles.length}`;
   position.setAttribute('aria-label', `Style ${index + 1} of ${styles.length}`);
-  description.textContent = descriptions[value];
-  description.hidden = !descriptions[value];
   frame.title = `Saved posts in ${label} style`;
   originalFeed.hidden = value !== 'original';
   frame.hidden = value === 'original';
