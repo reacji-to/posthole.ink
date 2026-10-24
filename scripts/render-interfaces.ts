@@ -1,6 +1,6 @@
 // bun scripts/render-interfaces.ts [path/to/posthole/viewer]
 // Snapshot the real viewer using ONLY the already-curated public demo records.
-// The generated dist/demo files are self-contained; hosting needs no Bun server.
+// The generated public/demo files are self-contained; hosting needs no Bun server.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -10,7 +10,7 @@ const viewer = path.resolve(process.argv[2] || path.join(root, '../viewer'));
 const { Card, Page, files } = await import(path.join(viewer, 'views.tsx'));
 const { INTERFACES } = await import(path.join(viewer, 'interfaces.ts'));
 const curated = JSON.parse(fs.readFileSync(path.join(root, 'data/posts.json'), 'utf8'));
-const output = path.join(root, 'dist/demo');
+const output = path.join(root, 'public/demo');
 fs.mkdirSync(path.join(output, 'assets'), { recursive: true });
 // Resolve media from this site's curated assets, never the private archive.
 files.base = null;
@@ -46,5 +46,5 @@ fs.copyFileSync(path.join(viewer, 'style.css'), path.join(output, 'viewer.css'))
 for (const file of ['chirp-regular.woff2', 'chirp-bold.woff2']) {
   fs.copyFileSync(path.join(viewer, 'assets', file), path.join(output, 'assets', file));
 }
-fs.writeFileSync(path.join(root, 'dist/interfaces.json'), JSON.stringify(INTERFACES));
+fs.writeFileSync(path.join(root, 'public/interfaces.json'), JSON.stringify(INTERFACES));
 console.log(`Rendered ${Object.keys(INTERFACES).length - 1} interfaces from ${curated.length} public posts.`);

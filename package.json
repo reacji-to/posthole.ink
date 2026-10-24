@@ -3,9 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test scripts/demo.test.mjs",
+    "test": "node --test scripts/*.test.mjs",
     "render:posts": "node scripts/render-posts.mjs",
-    "render:interfaces": "bun scripts/render-interfaces.ts"
+    "render:interfaces": "bun scripts/render-interfaces.ts",
+    "build": "node scripts/build-worker.mjs"
   },
-  "devDependencies": { "linkedom": "^0.18.12" }
+  "devDependencies": {
+    "linkedom": "^0.18.12"
+  }
 }

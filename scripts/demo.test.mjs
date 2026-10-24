@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import { parseHTML } from 'linkedom';
 
-const root = new URL('../dist/', import.meta.url);
+const root = new URL('../public/', import.meta.url);
 function setup(reduced = false) {
   const { document, window } = parseHTML(fs.readFileSync(new URL('index.html', root), 'utf8'));
   const picker = document.querySelector('#demo-style');

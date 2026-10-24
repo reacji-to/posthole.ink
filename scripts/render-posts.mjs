@@ -22,7 +22,7 @@ const cards = posts.map(p=>{
   const parent=p.parent?`<details class="replies" data-expand="View earlier post in this thread" data-close="Hide earlier post"><summary>View earlier post in this thread</summary><div class="thread-parent">${author(p.parent)}${paragraphs(p.parent.text)}${media(p.parent)}<a class="source-link" href="${escape(p.parent.url)}" target="_blank" rel="noopener noreferrer">View original post ↗</a></div></details>`:'';
   return `<article class="sample-card ${p.platform==='linkedin'?'linkedin':''}" data-platform="${p.platform}">${author(p)}<div class="saved-copy">${copy}</div>${media(p)}<div class="saved-meta"><span>${p.metrics.likes!=null?`${p.metrics.likes} ${p.metrics.likes===1?'like':'likes'}${p.metrics.bookmarks!=null?' · '+p.metrics.bookmarks+' bookmarks':''}`: 'Saved from LinkedIn'}</span><a class="source-link" href="${escape(p.url)}" target="_blank" rel="noopener noreferrer">View original ↗</a></div>${parent}</article>`;
 }).join('\n');
-const file=path.join(root,'dist/index.html');
+const file=path.join(root,'public/index.html');
 let html=fs.readFileSync(file,'utf8');
 for(const platform of ['all','x','linkedin']){
  const count=posts.filter(p=>platform==='all'||p.platform===platform).length;
