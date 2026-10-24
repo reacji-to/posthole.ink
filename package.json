@@ -8,7 +8,8 @@
     "render:interfaces": "bun scripts/render-interfaces.ts",
     "build": "node scripts/build-worker.mjs",
     "check:viewer": "node scripts/check-viewer.mjs",
-    "prebuild": "npm run check:viewer"
+    "prebuild": "npm run check:viewer",
+    "render:install": "node scripts/render-install.mjs"
   },
   "devDependencies": {
     "linkedom": "^0.18.12"

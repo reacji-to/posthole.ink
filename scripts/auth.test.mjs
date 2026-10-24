@@ -9,13 +9,15 @@ const assets = {
   '/demo/ipod.html':{type:'text/html',text:'Preview'},
   '/posts/media.mp4':{type:'video/mp4'},
   '/posthole.zip':{type:'application/zip'},
+  '/install/index.html':{type:'text/html',text:'Installation guide'},
+  '/install/agent.txt':{type:'text/plain',text:'Agent instructions'},
 };
 const request = (path, auth, options = {}) => new Request(`https://posthole.test${path}`, {...options, headers:{...(auth ? {Authorization:auth} : {}),...options.headers}});
 
 test('every path requires credentials before any content or upstream fetch', async () => {
   let calls = 0;
   const worker = createHandler(assets, 'pinned-commit', () => { calls++; throw new Error('Must not fetch'); });
-  for (const path of ['/', '/style.css', '/demo/ipod.html', '/posts/media.mp4', '/posthole.zip', '/missing']) {
+  for (const path of ['/', '/style.css', '/demo/ipod.html', '/posts/media.mp4', '/posthole.zip', '/install', '/install/', '/install/agent.txt', '/missing']) {
     for (const auth of [undefined, 'Basic !!!', 'Bearer token', 'Basic '+btoa('test-user:wrong')]) {
       const response = await worker.fetch(request(path, auth), env);
       assert.equal(response.status, 401);
@@ -30,6 +32,11 @@ test('every path requires credentials before any content or upstream fetch', asy
 test('valid credentials serve pages, query strings, HEAD, and explicit failures', async () => {
   const worker = createHandler(assets, 'pinned-commit');
   assert.equal(await (await worker.fetch(request('/?view=gallery', authorization), env)).text(), 'Protected page');
+  for (const path of ['/install', '/install/', '/install/index.html']) {
+    const guide = await worker.fetch(request(path, authorization), env);
+    assert.equal(guide.status, 200);
+    assert.equal(await guide.text(), 'Installation guide');
+  }
   const head = await worker.fetch(request('/style.css', authorization, {method:'HEAD'}), env);
   assert.equal(head.status, 200); assert.equal(await head.text(), '');
   assert.equal((await worker.fetch(request('/missing', authorization), env)).status, 404);

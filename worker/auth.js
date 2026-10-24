@@ -29,6 +29,7 @@ export function createHandler(assets, sourceCommit, upstream = fetch) {
       try { pathname = decodeURIComponent(new URL(request.url).pathname); }
       catch { return new Response('Not found.', {status:404}); }
       if (pathname.endsWith('/')) pathname += 'index.html';
+      else if (Object.hasOwn(assets, `${pathname}/index.html`)) pathname += '/index.html';
       const asset = Object.hasOwn(assets, pathname) ? assets[pathname] : null;
       if (!asset) return new Response('Not found.', {status:404, headers:{'Cache-Control':'no-store'}});
       const headers = new Headers({

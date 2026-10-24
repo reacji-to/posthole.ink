@@ -18,3 +18,5 @@ bun scripts/render-interfaces.ts /path/to/posthole/viewer
 The viewer path defaults to `../viewer` for the nested development checkout. The generated HTML, fonts, CSS, and controls are committed to `public/demo/`. `demo.css` and `demo.js` are the landing-page adapters and are preserved by regeneration. `interfaces.json` records the supported interfaces from that viewer snapshot.
 
 Run `npm install` and `npm test` for tour, selection, filtering, reduced-motion, and generated-asset checks. Preview with any static server rooted at `public/` for copy/layout work.
+
+The agent installation guide is authored in `public/install/agent.txt`. Run `npm run render:install` after changing it to regenerate `public/install/index.html`. The protected Worker serves both `/install` and `/install/` as that page. Its plain-text version uses the same site authentication.
