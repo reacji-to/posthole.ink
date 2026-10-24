@@ -3,10 +3,12 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const sourceCommit = execFileSync('git', ['rev-parse', 'HEAD'], {cwd:root, encoding:'utf8'}).trim();
+const {commit:sourceCommit} = JSON.parse(fs.readFileSync(path.join(root, '.openai/asset-source.json'), 'utf8'));
+if (!/^[a-f0-9]{40}$/.test(sourceCommit)) throw new Error('Invalid asset source commit.');
 // Binary URLs must reference a committed snapshot containing these same assets.
 const changed = execFileSync('git', ['status','--porcelain','--','public'], {cwd:root, encoding:'utf8'});
 if (changed.trim()) throw new Error('Commit public/ before building the protected worker.');
+execFileSync('git', ['diff','--exit-code',sourceCommit,'--','public'], {cwd:root, stdio:'pipe'});
 const types = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8',
   '.json':'application/json','.txt':'text/plain; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.mp4':'video/mp4',
   '.woff2':'font/woff2','.zip':'application/zip'};

@@ -2,7 +2,7 @@
 
 The landing page source lives in `public/`. A small server-side Worker protects every route with HTTP Basic authentication, including previews, images, videos, and the download. Credentials are set as hosted secrets `BASIC_AUTH_USER` and `BASIC_AUTH_PASSWORD`; they are never included in source or browser bundles.
 
-Run `npm run build` after committing changes to `public/`. The build embeds text assets and streams binary assets through the authenticated Worker from the exact committed GitHub source snapshot. The GitHub repository is public; site authentication controls access on the hosted domain. The deployment artifact contains only the Worker and hosting metadata, so there is no public static route around authentication. If credentials are missing, the server refuses all requests.
+Run `npm run build` after committing changes to `public/`. Set `.openai/asset-source.json` to a pushed GitHub commit containing the same `public/` files; the build verifies they match. The build embeds text assets and streams binary assets through the authenticated Worker from that exact source snapshot. The GitHub repository is public; site authentication controls access on the hosted domain. The deployment artifact contains only the Worker and hosting metadata, so there is no public static route around authentication. If credentials are missing, the server refuses all requests.
 
 The mini player cycles through all ten viewer interfaces every eight seconds. Choosing a style, searching, filtering, or interacting with a preview pauses the tour; Play resumes it. Reduced-motion users start paused.
 
