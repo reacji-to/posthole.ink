@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const viewer = path.resolve(process.argv[2] || path.join(root, '../viewer'));
@@ -47,4 +48,19 @@ for (const file of ['chirp-regular.woff2', 'chirp-bold.woff2']) {
   fs.copyFileSync(path.join(viewer, 'assets', file), path.join(output, 'assets', file));
 }
 fs.writeFileSync(path.join(root, 'public/interfaces.json'), JSON.stringify(INTERFACES));
+// The landing page must use the exact same catalog as the local server.
+const landing = path.join(root, 'public/index.html');
+const escape = (value: string) => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
+let index = fs.readFileSync(landing, 'utf8');
+index = index.replace(/(<select id="demo-style"[^>]*>)[\s\S]*?(<\/select>)/, (_, start, end) => start + '\n' + Object.entries(INTERFACES).map(([id, info]) => `<option value="${id}">${escape(info.label)}</option>`).join('') + '\n' + end);
+index = index.replace(/(<span id="style-position")[^>]*>[^<]*/, `$1 aria-label="Style 1 of ${Object.keys(INTERFACES).length}">1 / ${Object.keys(INTERFACES).length}`);
+index = index.replace(/<script id="interface-catalog"[\s\S]*?<\/script>\s*/, '');
+index = index.replace('</head>', `<script id="interface-catalog" type="application/json">${JSON.stringify(INTERFACES).replaceAll('<', '\\u003c')}</script></head>`);
+fs.writeFileSync(landing, index);
+for (const file of fs.readdirSync(output)) {
+  if (file.endsWith('.html') && !Object.hasOwn(INTERFACES, file.slice(0, -5))) fs.unlinkSync(path.join(output, file));
+}
+const sourceFiles = ['views.tsx', 'icons.tsx', 'interfaces.ts', 'style.css', 'interfaces.css', 'netflix.css', 'interface-controls.js', 'card-interactions.js', 'netflix.js'];
+const hash = (file: string) => createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+fs.writeFileSync(path.join(output, 'source-hashes.json'), JSON.stringify(Object.fromEntries(sourceFiles.map(file => [file, hash(path.join(viewer, file))])), null, 2) + '\n');
 console.log(`Rendered ${Object.keys(INTERFACES).length - 1} interfaces from ${curated.length} public posts.`);

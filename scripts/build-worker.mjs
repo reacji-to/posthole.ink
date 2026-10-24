@@ -8,7 +8,9 @@ if (!/^[a-f0-9]{40}$/.test(sourceCommit)) throw new Error('Invalid asset source 
 // Binary URLs must reference a committed snapshot containing these same assets.
 const changed = execFileSync('git', ['status','--porcelain','--','public'], {cwd:root, encoding:'utf8'});
 if (changed.trim()) throw new Error('Commit public/ before building the protected worker.');
-execFileSync('git', ['diff','--exit-code',sourceCommit,'--','public'], {cwd:root, stdio:'pipe'});
+const changedAssets = execFileSync('git', ['diff','--name-only',sourceCommit,'--','public'], {cwd:root, encoding:'utf8'}).trim().split('\n').filter(Boolean);
+const textExtensions = ['.html','.css','.js','.json','.txt'];
+if (changedAssets.some(name => !textExtensions.includes(path.extname(name)))) throw new Error('Update .openai/asset-source.json to a pushed commit containing the current binary assets.');
 const types = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8',
   '.json':'application/json','.txt':'text/plain; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.mp4':'video/mp4',
   '.woff2':'font/woff2','.zip':'application/zip'};

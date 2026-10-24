@@ -32,8 +32,9 @@ function setup(reduced = false) {
 
 test('the autoplay tour visits every supported interface and loops', () => {
   const app = setup(); const seen = new Set([app.picker.value]);
-  for (let i = 0; i < 10; i++) { app.tick(8000); seen.add(app.picker.value); }
-  assert.equal(seen.size, 10);
+  for (let i = 0; i < app.options.length; i++) { app.tick(8000); seen.add(app.picker.value); }
+  assert.equal(seen.size, app.options.length);
+  assert.deepEqual(app.options.map(option => option.value), Object.keys(JSON.parse(app.document.querySelector('#interface-catalog').textContent)));
   assert.equal(app.picker.value, 'original');
   assert.equal(app.document.querySelector('.archive-feed').hidden, false);
 });
